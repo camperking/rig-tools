@@ -1,0 +1,79 @@
+# ReadFile-Werkzeug
+read_file.description = "Liest den Inhalt einer Datei. Unterstützt optionale Zeilenbereichsparameter. Wenn die Ausgabe gekürzt wird, zeigt die Antwort an, wie viele Zeilen von der Gesamtzahl angezeigt werden."
+read_file.param_path = "Der Dateipfad zum Lesen"
+read_file.param_start_line = "Erste zurückzugebende Zeile (1-basiert, inklusiv). Standard ist 1."
+read_file.param_end_line = "Letzte zurückzugebende Zeile (1-basiert, inklusiv). Standard ist start_line + max_lines."
+read_file.showing_lines = "[Zeilen %{start}-%{end} von %{total} Zeilen insgesamt]"
+read_file.error_read_failed = "Fehler beim Lesen von '%{path}': %{error}"
+read_file.error_start_beyond_eof = "start_line %{start} liegt hinter dem Dateiende (%{total} Zeilen)"
+
+# EditFile-Werkzeug
+edit_file.description = "Bearbeitet eine Datei durch Textersetzung. Verwende entweder old_string/new_string für eine einzelne Änderung oder ein edits-Array für mehrere Ersetzungen. Gibt einen Unified-Diff der Änderungen zurück."
+edit_file.param_path = "Der Dateipfad zum Bearbeiten"
+edit_file.param_old_string = "Die genaue Zeichenkette, die gefunden und ersetzt werden soll (nur erstes Vorkommen)"
+edit_file.param_new_string = "Die Ersatzzeichenkette"
+edit_file.param_edits = "Array von Bearbeitungsoperationen, jeweils mit old_string und new_string. Verwende dies für mehrere Ersetzungen in einem Aufruf."
+edit_file.success = "'%{path}' erfolgreich bearbeitet"
+edit_file.error_read_failed = "Fehler beim Lesen von '%{path}': %{error}"
+edit_file.error_not_found = "old_string nicht gefunden in '%{path}'"
+edit_file.error_write_failed = "Fehler beim Schreiben von '%{path}': %{error}"
+edit_file.error_missing_args = "Gib entweder old_string und new_string oder ein nicht-leeres edits-Array an"
+
+# WriteFile-Werkzeug
+write_file.description = "Schreibt den angegebenen Inhalt in eine Datei am angegebenen Pfad und erstellt übergeordnete Verzeichnisse bei Bedarf."
+write_file.param_path = "Der Dateipfad zum Schreiben"
+write_file.param_content = "Der Inhalt, der in die Datei geschrieben werden soll"
+write_file.success = "Erfolgreich nach '%{path}' geschrieben"
+write_file.error_create_dirs = "Fehler beim Erstellen der Verzeichnisse: %{error}"
+write_file.error_write_failed = "Fehler beim Schreiben von '%{path}': %{error}"
+
+# Bash-Werkzeug
+bash.description = "Führt einen Bash-Befehl aus und gibt die Ausgabe zurück (stdout und stderr)."
+bash.param_command = "Der auszuführende Bash-Befehl"
+bash.param_timeout = "Zeitlimit in Sekunden (Standard: 120)"
+bash.error_execute_failed = "Fehler beim Ausführen des Befehls: %{error}"
+bash.error_timeout = "Befehl hat nach %{timeout} Sekunden das Zeitlimit überschritten"
+
+# PowerShell-Werkzeug
+powershell.description = "Führt einen PowerShell-Befehl aus und gibt die Ausgabe zurück (stdout und stderr)."
+powershell.param_command = "Der auszuführende PowerShell-Befehl"
+powershell.param_timeout = "Zeitlimit in Sekunden (Standard: 120)"
+powershell.error_execute_failed = "Fehler beim Ausführen des Befehls: %{error}"
+powershell.error_timeout = "Befehl hat nach %{timeout} Sekunden das Zeitlimit überschritten"
+
+# Grep-Werkzeug
+grep.description = "Durchsucht Dateiinhalte nach einem Muster mittels Regex oder literaler Übereinstimmung. Beachtet .gitignore-Regeln."
+grep.param_pattern = "Das Suchmuster (standardmäßig Regex, oder literal wenn literal=true)"
+grep.param_path = "Verzeichnis oder Datei zum Durchsuchen (Standard: aktuelles Verzeichnis)"
+grep.param_glob = "Dateien nach Glob-Muster filtern (z.B. '*.rs', '**/*.toml')"
+grep.param_ignore_case = "Groß-/Kleinschreibung ignorieren (Standard: false)"
+grep.param_literal = "Muster als literale Zeichenkette behandeln statt als Regex (Standard: false)"
+grep.param_context = "Anzahl der Zeilen vor und nach jedem Treffer"
+grep.param_max_results = "Maximale Anzahl zurückzugebender Treffer (Standard: 100)"
+grep.error_invalid_pattern = "Ungültiges Muster: %{error}"
+grep.error_search_failed = "Suche fehlgeschlagen: %{error}"
+grep.no_matches = "Keine Treffer gefunden"
+grep.results_truncated = "[Ergebnisse bei %{max} Treffern abgeschnitten]"
+
+# Glob-Werkzeug
+glob.description = "Sucht Dateien nach Glob-Muster. Beachtet .gitignore-Regeln. Gibt passende Dateipfade zurück."
+glob.param_pattern = "Glob-Muster zum Abgleich (z.B. '**/*.rs', 'src/*.toml')"
+glob.param_path = "Wurzelverzeichnis für die Suche (Standard: aktuelles Verzeichnis)"
+glob.param_max_results = "Maximale Anzahl zurückzugebender Ergebnisse (Standard: 1000)"
+glob.error_invalid_pattern = "Ungültiges Glob-Muster: %{error}"
+glob.error_walk_failed = "Fehler beim Durchsuchen des Verzeichnisses: %{error}"
+glob.no_matches = "Keine passenden Dateien gefunden"
+glob.results_truncated = "[Ergebnisse bei %{max} Dateien abgeschnitten]"
+
+# Ls-Werkzeug
+ls.description = "Listet Verzeichnisinhalte auf. Zeigt Dateien und Verzeichnisse mit Typindikatoren. Verzeichnisse werden mit / gekennzeichnet."
+ls.param_path = "Verzeichnis zum Auflisten (Standard: aktuelles Verzeichnis)"
+ls.param_max_results = "Maximale Anzahl zurückzugebender Einträge (Standard: 500)"
+ls.error_read_failed = "Fehler beim Lesen des Verzeichnisses '%{path}': %{error}"
+ls.empty_directory = "(leeres Verzeichnis)"
+ls.results_truncated = "[Ergebnisse bei %{max} Einträgen abgeschnitten]"
+
+# Gemeinsame Befehlsausgabe-Formatierung
+command_output.stderr_label = "stderr:"
+command_output.truncated = "... (Ausgabe gekürzt)"
+command_output.truncated_head = "... (Anfang der Ausgabe gekürzt)"

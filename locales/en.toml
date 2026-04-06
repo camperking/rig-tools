@@ -1,0 +1,79 @@
+# ReadFile tool
+read_file.description = "Read the contents of a file. Supports optional line range parameters. When the output is truncated, the response indicates how many lines are shown out of the total."
+read_file.param_path = "The file path to read"
+read_file.param_start_line = "First line to return (1-based, inclusive). Defaults to 1."
+read_file.param_end_line = "Last line to return (1-based, inclusive). Defaults to start_line + max_lines."
+read_file.showing_lines = "[Showing lines %{start}-%{end} of %{total} total lines]"
+read_file.error_read_failed = "Failed to read '%{path}': %{error}"
+read_file.error_start_beyond_eof = "start_line %{start} is beyond end of file (%{total} lines)"
+
+# EditFile tool
+edit_file.description = "Edit a file by replacing text. Provide either old_string/new_string for a single edit, or an edits array for multiple replacements. Returns a unified diff of changes."
+edit_file.param_path = "The file path to edit"
+edit_file.param_old_string = "The exact string to find and replace (first occurrence only)"
+edit_file.param_new_string = "The replacement string"
+edit_file.param_edits = "Array of edit operations, each with old_string and new_string. Use this for multiple replacements in one call."
+edit_file.success = "Successfully edited '%{path}'"
+edit_file.error_read_failed = "Failed to read '%{path}': %{error}"
+edit_file.error_not_found = "old_string not found in '%{path}'"
+edit_file.error_write_failed = "Failed to write '%{path}': %{error}"
+edit_file.error_missing_args = "Provide either old_string and new_string, or a non-empty edits array"
+
+# WriteFile tool
+write_file.description = "Writes the given content to a file at the specified path, creating parent directories if needed."
+write_file.param_path = "The file path to write to"
+write_file.param_content = "The content to write to the file"
+write_file.success = "Successfully wrote to '%{path}'"
+write_file.error_create_dirs = "Failed to create directories: %{error}"
+write_file.error_write_failed = "Failed to write '%{path}': %{error}"
+
+# BashTool
+bash.description = "Executes a bash command and returns its output (stdout and stderr)."
+bash.param_command = "The bash command to execute"
+bash.param_timeout = "Timeout in seconds (default: 120)"
+bash.error_execute_failed = "Failed to execute command: %{error}"
+bash.error_timeout = "Command timed out after %{timeout} seconds"
+
+# PowerShellTool
+powershell.description = "Executes a PowerShell command and returns its output (stdout and stderr)."
+powershell.param_command = "The PowerShell command to execute"
+powershell.param_timeout = "Timeout in seconds (default: 120)"
+powershell.error_execute_failed = "Failed to execute command: %{error}"
+powershell.error_timeout = "Command timed out after %{timeout} seconds"
+
+# Grep tool
+grep.description = "Search file contents for a pattern using regex or literal matching. Respects .gitignore rules."
+grep.param_pattern = "The search pattern (regex by default, or literal if literal=true)"
+grep.param_path = "Directory or file to search in (default: current directory)"
+grep.param_glob = "Filter files by glob pattern (e.g. '*.rs', '**/*.toml')"
+grep.param_ignore_case = "Case-insensitive matching (default: false)"
+grep.param_literal = "Treat pattern as a literal string instead of regex (default: false)"
+grep.param_context = "Number of lines to show before and after each match"
+grep.param_max_results = "Maximum number of matches to return (default: 100)"
+grep.error_invalid_pattern = "Invalid pattern: %{error}"
+grep.error_search_failed = "Search failed: %{error}"
+grep.no_matches = "No matches found"
+grep.results_truncated = "[Results truncated at %{max} matches]"
+
+# Glob tool
+glob.description = "Search for files by glob pattern. Respects .gitignore rules. Returns matching file paths."
+glob.param_pattern = "Glob pattern to match (e.g. '**/*.rs', 'src/*.toml')"
+glob.param_path = "Root directory to search in (default: current directory)"
+glob.param_max_results = "Maximum number of results to return (default: 1000)"
+glob.error_invalid_pattern = "Invalid glob pattern: %{error}"
+glob.error_walk_failed = "Failed to walk directory: %{error}"
+glob.no_matches = "No matching files found"
+glob.results_truncated = "[Results truncated at %{max} files]"
+
+# Ls tool
+ls.description = "List directory contents. Shows files and directories with type indicators. Directories are suffixed with /."
+ls.param_path = "Directory to list (default: current directory)"
+ls.param_max_results = "Maximum number of entries to return (default: 500)"
+ls.error_read_failed = "Failed to read directory '%{path}': %{error}"
+ls.empty_directory = "(empty directory)"
+ls.results_truncated = "[Results truncated at %{max} entries]"
+
+# Shared command output formatting
+command_output.stderr_label = "stderr:"
+command_output.truncated = "... (output truncated)"
+command_output.truncated_head = "... (beginning of output truncated)"
