@@ -73,6 +73,24 @@ ls.error_read_failed = "Fehler beim Lesen des Verzeichnisses '%{path}': %{error}
 ls.empty_directory = "(leeres Verzeichnis)"
 ls.results_truncated = "[Ergebnisse bei %{max} Einträgen abgeschnitten]"
 
+# UI-Anzeigenamen und Kurzbeschreibungen (für Einstellungspanels)
+ui.read_file.name = "Datei lesen"
+ui.read_file.desc = "Liest den Inhalt einer Datei von der Festplatte"
+ui.edit_file.name = "Datei bearbeiten"
+ui.edit_file.desc = "Ersetzt Text in einer Datei mittels Suchen und Ersetzen"
+ui.write_file.name = "Datei schreiben"
+ui.write_file.desc = "Schreibt Inhalt in eine Datei, erstellt Verzeichnisse bei Bedarf"
+ui.bash.name = "Bash"
+ui.bash.desc = "Führt einen Bash-Befehl aus (Linux/macOS)"
+ui.powershell.name = "PowerShell"
+ui.powershell.desc = "Führt einen PowerShell-Befehl aus (Windows)"
+ui.grep.name = "Grep"
+ui.grep.desc = "Durchsucht Dateiinhalte nach einem Muster mittels Regex oder literaler Übereinstimmung"
+ui.glob.name = "Glob"
+ui.glob.desc = "Sucht Dateien nach Glob-Muster"
+ui.ls.name = "Verzeichnis auflisten"
+ui.ls.desc = "Listet Verzeichnisinhalte mit Typindikatoren auf"
+
 # Gemeinsame Befehlsausgabe-Formatierung
 command_output.stderr_label = "stderr:"
 command_output.truncated = "... (Ausgabe gekürzt)"

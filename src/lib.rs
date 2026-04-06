@@ -20,6 +20,45 @@ pub use powershell::{PowerShellArgs, PowerShellTool};
 pub use read_file::{ReadFile, ReadFileArgs};
 pub use write_file::{WriteFile, WriteFileArgs};
 
+/// Metadata for a tool, for use in UI settings panels.
+pub struct ToolMeta {
+    /// The tool's rig name (e.g. "bash", "read_file").
+    pub rig_name: &'static str,
+    /// Locale key for the UI-facing tool name.
+    name_key: &'static str,
+    /// Locale key for a short UI-facing description.
+    desc_key: &'static str,
+}
+
+impl ToolMeta {
+    /// Returns the localized UI name for this tool.
+    pub fn name(&self) -> String {
+        t!(self.name_key).to_string()
+    }
+
+    /// Returns the localized short UI description for this tool.
+    pub fn description(&self) -> String {
+        t!(self.desc_key).to_string()
+    }
+}
+
+/// All tools provided by this crate, with their UI metadata.
+pub const TOOLS: &[ToolMeta] = &[
+    ToolMeta { rig_name: "read_file",  name_key: "ui.read_file.name",  desc_key: "ui.read_file.desc" },
+    ToolMeta { rig_name: "edit_file",  name_key: "ui.edit_file.name",  desc_key: "ui.edit_file.desc" },
+    ToolMeta { rig_name: "write_file", name_key: "ui.write_file.name", desc_key: "ui.write_file.desc" },
+    ToolMeta { rig_name: "bash",       name_key: "ui.bash.name",       desc_key: "ui.bash.desc" },
+    ToolMeta { rig_name: "powershell", name_key: "ui.powershell.name", desc_key: "ui.powershell.desc" },
+    ToolMeta { rig_name: "grep",       name_key: "ui.grep.name",       desc_key: "ui.grep.desc" },
+    ToolMeta { rig_name: "glob",       name_key: "ui.glob.name",       desc_key: "ui.glob.desc" },
+    ToolMeta { rig_name: "ls",         name_key: "ui.ls.name",         desc_key: "ui.ls.desc" },
+];
+
+/// Look up UI metadata for a tool by its rig name.
+pub fn tool_meta(rig_name: &str) -> Option<&'static ToolMeta> {
+    TOOLS.iter().find(|m| m.rig_name == rig_name)
+}
+
 use std::path::PathBuf;
 
 #[derive(Debug, thiserror::Error)]
