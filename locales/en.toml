@@ -1,5 +1,5 @@
 # ReadFile tool
-read_file.description = "Read the contents of a file. Supports optional line range parameters. When the output is truncated, the response indicates how many lines are shown out of the total."
+read_file.description = "Read the contents of a file. For text files, supports optional line range parameters; when the output is truncated, the response indicates how many lines are shown out of the total. For image files (jpg, jpeg, png, gif, webp, heic, heif, svg) the file is returned as image content for multimodal prompts; line range parameters are ignored."
 read_file.param_path = "The file path to read"
 read_file.param_start_line = "First line to return (1-based, inclusive). Defaults to 1."
 read_file.param_end_line = "Last line to return (1-based, inclusive). Defaults to start_line + max_lines."

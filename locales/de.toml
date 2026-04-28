@@ -1,5 +1,5 @@
 # ReadFile-Werkzeug
-read_file.description = "Liest den Inhalt einer Datei. Unterstützt optionale Zeilenbereichsparameter. Wenn die Ausgabe gekürzt wird, zeigt die Antwort an, wie viele Zeilen von der Gesamtzahl angezeigt werden."
+read_file.description = "Liest den Inhalt einer Datei. Bei Textdateien werden optionale Zeilenbereichsparameter unterstützt; wenn die Ausgabe gekürzt wird, zeigt die Antwort an, wie viele Zeilen von der Gesamtzahl angezeigt werden. Bei Bilddateien (jpg, jpeg, png, gif, webp, heic, heif, svg) wird die Datei als Bildinhalt für multimodale Prompts zurückgegeben; Zeilenbereichsparameter werden ignoriert."
 read_file.param_path = "Der Dateipfad zum Lesen"
 read_file.param_start_line = "Erste zurückzugebende Zeile (1-basiert, inklusiv). Standard ist 1."
 read_file.param_end_line = "Letzte zurückzugebende Zeile (1-basiert, inklusiv). Standard ist start_line + max_lines."
