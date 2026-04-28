@@ -9,6 +9,7 @@ mod grep;
 mod ls;
 mod powershell;
 mod read_file;
+mod web_fetch;
 mod write_file;
 
 pub use bash::{BashArgs, BashTool};
@@ -18,6 +19,7 @@ pub use grep::{Grep, GrepArgs};
 pub use ls::{Ls, LsArgs};
 pub use powershell::{PowerShellArgs, PowerShellTool};
 pub use read_file::{ReadFile, ReadFileArgs};
+pub use web_fetch::{WebFetch, WebFetchArgs, WebFetchFormat};
 pub use write_file::{WriteFile, WriteFileArgs};
 
 /// Metadata for a tool, for use in UI settings panels.
@@ -52,6 +54,7 @@ pub const TOOLS: &[ToolMeta] = &[
     ToolMeta { rig_name: "grep",       name_key: "ui.grep.name",       desc_key: "ui.grep.desc" },
     ToolMeta { rig_name: "glob",       name_key: "ui.glob.name",       desc_key: "ui.glob.desc" },
     ToolMeta { rig_name: "ls",         name_key: "ui.ls.name",         desc_key: "ui.ls.desc" },
+    ToolMeta { rig_name: "web_fetch",  name_key: "ui.web_fetch.name",  desc_key: "ui.web_fetch.desc" },
 ];
 
 /// Look up UI metadata for a tool by its rig name.

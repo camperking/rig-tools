@@ -73,6 +73,18 @@ ls.error_read_failed = "Fehler beim Lesen des Verzeichnisses '%{path}': %{error}
 ls.empty_directory = "(leeres Verzeichnis)"
 ls.results_truncated = "[Ergebnisse bei %{max} Einträgen abgeschnitten]"
 
+# WebFetch-Werkzeug
+web_fetch.description = "Ruft eine URL ab und gibt deren Inhalt zurück. Standardmäßig wird HTML in Markdown umgewandelt; mit format='text' wird Klartext zurückgegeben, mit format='html' der rohe HTML-Inhalt. Bildantworten (jpeg/png/gif/webp/heic/heif/svg) werden als Base64-codierter Bildinhalt für multimodale Prompts zurückgegeben."
+web_fetch.param_url = "Die abzurufende URL (muss mit http:// oder https:// beginnen)"
+web_fetch.param_format = "Ausgabeformat: 'markdown' (Standard), 'text' oder 'html'"
+web_fetch.param_timeout = "Anfrage-Zeitlimit in Sekunden (Standard: 30, Maximum: 120)"
+web_fetch.error_invalid_url = "URL muss mit http:// oder https:// beginnen"
+web_fetch.error_request_failed = "Anfrage an '%{url}' fehlgeschlagen: %{error}"
+web_fetch.error_timeout = "Anfrage an '%{url}' nach %{timeout} Sekunden abgelaufen"
+web_fetch.error_status = "Anfrage an '%{url}' lieferte Status %{status}"
+web_fetch.error_too_large = "Antwort von '%{url}' überschreitet das 5-MB-Größenlimit"
+web_fetch.error_html_to_markdown_failed = "Konvertierung von HTML zu Markdown fehlgeschlagen: %{error}"
+
 # UI-Anzeigenamen und Kurzbeschreibungen (für Einstellungspanels)
 ui.read_file.name = "Datei lesen"
 ui.read_file.desc = "Liest den Inhalt einer Datei von der Festplatte"
@@ -90,6 +102,8 @@ ui.glob.name = "Glob"
 ui.glob.desc = "Sucht Dateien nach Glob-Muster"
 ui.ls.name = "Verzeichnis auflisten"
 ui.ls.desc = "Listet Verzeichnisinhalte mit Typindikatoren auf"
+ui.web_fetch.name = "Web-Abruf"
+ui.web_fetch.desc = "Ruft eine URL ab und gibt deren Inhalt als Markdown, Text oder HTML zurück"
 
 # Gemeinsame Befehlsausgabe-Formatierung
 command_output.stderr_label = "stderr:"

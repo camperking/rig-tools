@@ -73,6 +73,18 @@ ls.error_read_failed = "Failed to read directory '%{path}': %{error}"
 ls.empty_directory = "(empty directory)"
 ls.results_truncated = "[Results truncated at %{max} entries]"
 
+# WebFetch tool
+web_fetch.description = "Fetch a URL and return its content. By default HTML is converted to Markdown; pass format='text' for plain text or format='html' for raw HTML. Image responses (jpeg/png/gif/webp/heic/heif/svg) are returned as base64-encoded image content for multimodal prompts."
+web_fetch.param_url = "The URL to fetch (must start with http:// or https://)"
+web_fetch.param_format = "Output format: 'markdown' (default), 'text', or 'html'"
+web_fetch.param_timeout = "Request timeout in seconds (default: 30, max: 120)"
+web_fetch.error_invalid_url = "URL must start with http:// or https://"
+web_fetch.error_request_failed = "Request to '%{url}' failed: %{error}"
+web_fetch.error_timeout = "Request to '%{url}' timed out after %{timeout} seconds"
+web_fetch.error_status = "Request to '%{url}' returned status %{status}"
+web_fetch.error_too_large = "Response from '%{url}' exceeds the 5 MB size limit"
+web_fetch.error_html_to_markdown_failed = "Failed to convert HTML to Markdown: %{error}"
+
 # UI-facing names and short descriptions (for settings panels)
 ui.read_file.name = "Read File"
 ui.read_file.desc = "Reads the contents of a file from disk"
@@ -90,6 +102,8 @@ ui.glob.name = "Glob"
 ui.glob.desc = "Searches for files by glob pattern"
 ui.ls.name = "List Directory"
 ui.ls.desc = "Lists directory contents with type indicators"
+ui.web_fetch.name = "Web Fetch"
+ui.web_fetch.desc = "Fetches a URL and returns its content as Markdown, text, or HTML"
 
 # Shared command output formatting
 command_output.stderr_label = "stderr:"
